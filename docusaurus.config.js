@@ -1,35 +1,46 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+const lightCodeTheme = require('prism-react-renderer/themes/github');
+const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+
+/** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'BrewBuddy API Docs',
-  tagline: 'Documentation for the BrewBuddy Automatic Coffee Maker Machine',
-  favicon: 'img/favicon.ico',
+  title: 'BrewBuddy API Docs', // Your site title
+  tagline: 'Automate Your Coffee Experience', // Your site tagline for the homepage hero (will be used by MDX page title meta)
+  url: 'https://mangesh2m.github.io', // Your GitHub Pages base URL (e.g., https://<USERNAME>.github.io)
+  baseUrl: '/api-docu-site/', // The path to your site from the base URL (e.g., /<REPO_NAME>/)
+  onBrokenLinks: 'throw', // Recommended: 'throw' for build errors on broken links
+  onBrokenMarkdownLinks: 'warn', // Recommended: 'warn' for issues with markdown links
+  favicon: 'img/favicon.ico', // Path to your favicon
 
-  url: 'https://mangesh2m.github.io', // 🔁 Replace with your actual site URL
-  baseUrl: '/api-docu-site/',
+  // GitHub Pages deployment config.
+  organizationName: 'mangesh2m', // Your GitHub org/user name.
+  projectName: 'api-docu-site', // Your repo name.
 
-  organizationName: 'mangesh2m', // Your GitHub username/org
-  projectName: 'api-docu-site',  // Your GitHub repo name
-
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
-
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
-  },
+  // Enable client-side rendering for routing (default)
+  // trailingSlash: false, // If you prefer /path instead of /path/
 
   presets: [
     [
-      'classic',
+      '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: '/', // 👉 Makes docs the homepage
+          // IMPORTANT MODIFICATION HERE:
+          // Remove or comment out 'routeBasePath: '/''.
+          // This allows src/pages/index.mdx to become the site's homepage.
+          // routeBasePath: '/', // <-- THIS LINE IS REMOVED/COMMENTED OUT
+          
           sidebarPath: require.resolve('./sidebars.js'),
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl: 'https://github.com/mangesh2m/api-docu-site/tree/main/',
+          
+          // NEW ADDITION: Add remark-gfm for GitHub Flavored Markdown support
+          // remarkPlugins: [require('remark-gfm')], 
         },
-        blog: false, // ❌ Disables blog
+        blog: false, // Set to false if you don't want a blog
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -40,24 +51,25 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      colorMode: {
-        defaultMode: 'light',       // 🌙 Dark mode by default
-        disableSwitch: false,      // Let user switch modes
-        respectPrefersColorScheme: true,
-      },
+      // Replace with your project's social card
+      image: 'img/docusaurus-social-card.jpg', // Used for social media previews
       navbar: {
-        title: 'BrewBuddy API',
+        title: 'BrewBuddy API', // Title next to the logo in the navbar
         logo: {
           alt: 'BrewBuddy Logo',
-          src: 'img/logo.svg',
+          src: 'img/logo.svg', // Path to your logo
         },
         items: [
+          // This item links to your documentation section.
+          // 'docId: 'getting-started' will correctly link to docs/getting-started.md
           {
             type: 'doc',
-            docId: 'getting-started',
+            docId: 'getting-started', 
             position: 'left',
-            label: 'Docs',
+            label: 'API Docs', // Label for the documentation link in the navbar
           },
+          // You can add more navbar items here (e.g., external links, custom pages)
+          // {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/mangesh2m/api-docu-site',
             label: 'GitHub',
@@ -66,19 +78,41 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'dark', // 'dark' or 'light'
         links: [
           {
             title: 'Docs',
             items: [
               {
-                label: 'Getting Started',
-                to: '/',
+                label: 'Overview', // This label appears in the footer
+                // MODIFICATION: Ensure this links to the correct doc path
+                to: '/docs/getting-started', 
+              },
+              {
+                label: 'Authentication',
+                to: '/docs/authentication', // Example: Link to your authentication doc
               },
             ],
           },
           {
             title: 'Community',
+            items: [
+              {
+                label: 'Stack Overflow',
+                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              },
+              {
+                label: 'Discord',
+                href: 'https://discordapp.com/invite/docusaurus',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/docusaurus',
+              },
+            ],
+          },
+          {
+            title: 'More',
             items: [
               {
                 label: 'GitHub',
@@ -87,11 +121,18 @@ const config = {
             ],
           },
         ],
-        copyright: `© ${new Date().getFullYear()} BrewBuddy.`,
+        copyright: `Copyright © ${new Date().getFullYear()} BrewBuddy. Built with Docusaurus.`,
       },
       prism: {
-        theme: require('prism-react-renderer/themes/github'),
-        darkTheme: require('prism-react-renderer/themes/dracula'),
+        theme: lightCodeTheme, // Code highlighting theme for light mode
+        darkTheme: darkCodeTheme, // Code highlighting theme for dark mode
+        // Additional languages to highlight
+        additionalLanguages: ['bash', 'json'], 
+      },
+      colorMode: {
+        defaultMode: 'dark', // Default theme mode
+        disableSwitch: false, // Allow users to toggle between light/dark
+        respectPrefersColorScheme: true, // Respect OS preference
       },
     }),
 };
