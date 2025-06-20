@@ -11,8 +11,8 @@ This website provides comprehensive documentation for the **BrewBuddy API**, bui
 To set up the project locally, first install the dependencies:
 
 ```bash
-yarn install
-# or npm install
+npm install
+# or yarn install
 ```
 
 ### Local Development
@@ -20,8 +20,8 @@ yarn install
 This command starts a local development server and opens a browser window. Most changes are reflected live without having to restart the server.
 
 ```bash
-yarn start
-# or npm start
+npm start
+# or yarn start
 ```
 
 ## Build & Deployment
@@ -31,8 +31,8 @@ yarn start
 This command generates static content into the build directory and can be served using any static content hosting service.
 
 ```bash
-yarn build
-# or npm run build
+npm run build
+# or yarn build
 ```
 
 ### Deployment
