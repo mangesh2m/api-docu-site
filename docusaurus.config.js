@@ -3,11 +3,11 @@
 
 const config = {
   title: 'BrewBuddy API Docs',
-  tagline: 'Documentation for the Automatic Coffee Maker Machine',
+  tagline: 'Documentation for the BrewBuddy Automatic Coffee Maker Machine',
   favicon: 'img/favicon.ico',
 
-  url: 'https://your-site.com', // 🔁 Replace with your actual site URL
-  baseUrl: '/',
+  url: 'https://mangesh2m.github.io', // 🔁 Replace with your actual site URL
+  baseUrl: '/api-docu-site/',
 
   organizationName: 'mangesh2m', // Your GitHub username/org
   projectName: 'api-docu-site',  // Your GitHub repo name
