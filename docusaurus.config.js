@@ -31,14 +31,14 @@ const config = {
           // Remove or comment out 'routeBasePath: '/''.
           // This allows src/pages/index.mdx to become the site's homepage.
           // routeBasePath: '/', // <-- THIS LINE IS REMOVED/COMMENTED OUT
-          
+
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/mangesh2m/api-docu-site/tree/main/',
-          
+
           // NEW ADDITION: Add remark-gfm for GitHub Flavored Markdown support
-          // remarkPlugins: [require('remark-gfm')], 
+          // remarkPlugins: [require('remark-gfm')],
         },
         blog: false, // Set to false if you don't want a blog
         theme: {
@@ -53,18 +53,22 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg', // Used for social media previews
+
+      // --- ADDED/MOVED SCROLLTOTOP HERE ---
+      scrollToTop: true,
+
       navbar: {
-        title: 'BrewBuddy API', // Title next to the logo in the navbar
+        title: 'Home', // Title next to the logo in the navbar
         logo: {
           alt: 'BrewBuddy Logo',
-          src: 'img/logo.svg', // Path to your logo
+          src: 'img/brewbuddy-logo.png', // Path to your logo
         },
         items: [
           // This item links to your documentation section.
           // 'docId: 'getting-started' will correctly link to docs/getting-started.md
           {
             type: 'doc',
-            docId: 'getting-started', 
+            docId: 'getting-started',
             position: 'left',
             label: 'API Docs', // Label for the documentation link in the navbar
           },
@@ -86,7 +90,7 @@ const config = {
               {
                 label: 'Overview', // This label appears in the footer
                 // MODIFICATION: Ensure this links to the correct doc path
-                to: '/docs/getting-started', 
+                to: '/docs/getting-started',
               },
               {
                 label: 'Authentication',
@@ -123,18 +127,19 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} BrewBuddy. Built with Docusaurus.`,
       },
+      // --- THESE PROPERTIES HAVE BEEN MOVED INSIDE THE themeConfig OBJECT ---
       prism: {
         theme: lightCodeTheme, // Code highlighting theme for light mode
         darkTheme: darkCodeTheme, // Code highlighting theme for dark mode
-        // Additional languages to highlight
-        additionalLanguages: ['bash', 'json'], 
+        additionalLanguages: ['bash', 'json'],
       },
       colorMode: {
         defaultMode: 'dark', // Default theme mode
-        disableSwitch: false, // Allow users to toggle between light/dark
-        respectPrefersColorScheme: true, // Respect OS preference
+        disableSwitch: true, // This will now correctly disable the theme toggle
+        respectPrefersColorScheme: false, // Ignore OS preference
       },
-    }),
+      // --- END MOVED SECTIONS ---
+    }), // This is the CORRECT closing for the themeConfig object
 };
 
 module.exports = config;
