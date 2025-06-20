@@ -1,41 +1,75 @@
-# Website
+# BrewBuddy API Documentation Website
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This website provides comprehensive documentation for the **BrewBuddy API**, built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-## Installation
+---
+
+## Installation & Local Development
+
+### Installation
+
+To set up the project locally, first install the dependencies:
 
 ```bash
-yarn
+yarn install
+# or npm install
 ```
 
-## Local Development
+### Local Development
+
+This command starts a local development server and opens a browser window. Most changes are reflected live without having to restart the server.
 
 ```bash
 yarn start
+# or npm start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+## Build & Deployment
 
-## Build
+### Build
+
+This command generates static content into the build directory and can be served using any static content hosting service.
 
 ```bash
 yarn build
+# or npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+### Deployment
 
-## Deployment
+If you are using GitHub Pages for hosting (which you are!), your configured GitHub Actions workflow handles the deployment automatically on push to `main`.
 
-Using SSH:
+## **Key API Endpoints Overview**
 
-```bash
-USE_SSH=true yarn deploy
-```
+This is a GFM table to showcase common API endpoints.
 
-Not using SSH:
+| Endpoint                  | Method | Description                                     | Authentication Required |
+| :------------------------ | :----- | :---------------------------------------------- | :---------------------- |
+| `/v1/status`              | `GET`  | Get current machine status                      | No                      |
+| `/v1/brew`                | `POST` | Start a brewing cycle                           | Yes                     |
+| `/v1/profiles`            | `GET`  | List all available brew profiles                | No                      |
+| `/v1/profiles/{id}`       | `PUT`  | Update a specific brew profile                  | Yes                     |
+| `/v1/maintenance/clean`   | `POST` | Initiate a cleaning cycle                       | Yes                     |
+| `/v1/telemetry`           | `GET`  | Fetch real-time telemetry data                  | Yes                     |
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
+## **Project Status** (GFM Task List Example)
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+This is a GFM task list to track project progress.
+
+- [x] Initial Docusaurus setup
+- [x] Basic documentation content added
+- [x] GitHub Pages deployment via Actions
+- [ ] Implement custom homepage (this task is in progress!)
+- [ ] Add more API reference documentation
+- [ ] Integrate Swagger/OpenAPI spec (future)
+- [ ] Create troubleshooting guide
+  
+## Contributing
+
+We welcome contributions! Please see our CONTRIBUTING.md for details.
+
+:::note
+
+This README uses GitHub Flavored Markdown (GFM) for tables and task lists.
+
+:::
