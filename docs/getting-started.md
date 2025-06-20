@@ -14,7 +14,7 @@ This documentation will help you understand how to programmatically interact wit
 
 ## What is BrewBuddy?
 
-**BrewBuddy** is a Wi-Fi-enabled coffee machine designed for home and office environments. It supports remote control, custom brew profiles, maintenance alerts, and telemetry data — all accessible via a RESTful API.
+**BrewBuddy** is a Wi-Fi-enabled (IoT) coffee machine designed for home and office environments. It supports remote control, custom brew profiles, maintenance alerts, and telemetry data — all accessible via a RESTful API.
 
 ---
 
@@ -51,3 +51,4 @@ curl -X POST https://api.brewbuddy.io/v1/brew \
   -H "Authorization: Bearer <your_api_key>" \
   -H "Content-Type: application/json" \
   -d '{"strength": "strong", "size": "medium"}'
+```
