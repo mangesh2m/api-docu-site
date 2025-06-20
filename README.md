@@ -1,5 +1,7 @@
 # BrewBuddy API Documentation Website
 
+[![docusaurus](https://img.shields.io/badge/Powered%20By-docusaurus-darkgreen?style=flat-square)](https://docusaurus.io) [![ghpages](https://img.shields.io/badge/Powered%20By-GitHub%20Pages-black?style=flat-square&logo=github&&logoColor=white)](https://pages.github.com)
+
 This website provides comprehensive documentation for the **BrewBuddy API**, built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ---
@@ -64,10 +66,6 @@ This is a GFM task list to track project progress.
 - [ ] Integrate Swagger/OpenAPI spec (future)
 - [ ] Create troubleshooting guide
   
-## Contributing
-
-We welcome contributions! Please see our CONTRIBUTING.md for details.
-
 :::note
 
 This README uses GitHub Flavored Markdown (GFM) for tables and task lists.
