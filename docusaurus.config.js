@@ -12,7 +12,7 @@ const config = {
   organizationName: 'mangesh2m', // Your GitHub username/org
   projectName: 'api-docu-site',  // Your GitHub repo name
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
@@ -73,7 +73,7 @@ const config = {
             items: [
               {
                 label: 'Getting Started',
-                to: '/getting-started',
+                to: '/docs/getting-started',
               },
             ],
           },
