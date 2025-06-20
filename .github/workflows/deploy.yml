@@ -1,35 +1,74 @@
-name: Deploy Docusaurus site to GitHub Pages
+# .github/workflows/deploy.yml
 
+name: Deploy Docusaurus to GitHub Pages
+
+# Controls when the workflow will run
 on:
+  # Triggers the workflow on push events to the main branch
   push:
     branches:
-      - main # Or 'master' if that's your default branch
+      - main
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Define a single job to build and deploy the Docusaurus site
 jobs:
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
+  # The 'build' job prepares the Docusaurus site
+  build:
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+    
+    # Permissions for the GITHUB_TOKEN
     permissions:
-      contents: write # ADD THIS LINE
-      pages: write    # ADD THIS LINE
-      id-token: write # ADD THIS LINE
-    steps:
-      - uses: actions/checkout@v4
+      contents: read   # Allows reading the repository content (for checkout)
+      pages: write     # Allows uploading artifacts for GitHub Pages
+      id-token: write  # Allows authentication with OIDC for Pages (recommended for security)
 
-      - name: Use Node.js
+    steps:
+      # Step 1: Check out the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js environment
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # Or your preferred Node.js version (e.g., 18, 20)
+          node-version: 20 # Specify the Node.js version you use
 
+      # Step 3: Install project dependencies
       - name: Install dependencies
-        run: npm install
+        run: npm install --frozen-lockfile # '--frozen-lockfile' is good for CI for reproducibility
 
+      # Step 4: Build the Docusaurus website
       - name: Build Docusaurus website
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      # Step 5: Upload the built site as an artifact for GitHub Pages
+      # This action makes the 'build' folder available for the 'deploy' job
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build # The directory where Docusaurus builds the static site
-          cname: mangesh2m.github.io/api-docu-site
+          path: './build' # Path to your Docusaurus build output directory
+
+  # The 'deploy' job publishes the artifact to GitHub Pages
+  deploy:
+    # This job will only run after the 'build' job has successfully completed
+    needs: build
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+    
+    # Configure the deployment environment for GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }} # The URL of the deployed site
+
+    # Permissions for the GITHUB_TOKEN in this job
+    permissions:
+      pages: write   # Allows deploying to GitHub Pages
+      id-token: write # Allows authentication with OIDC for Pages
+
+    steps:
+      # Step 1: Deploy the uploaded artifact to GitHub Pages
+      # This action takes the artifact from the 'build' job and deploys it
+      - name: Deploy to GitHub Pages
+        id: deployment # Assign an ID to this step to access its outputs
+        uses: actions/deploy-pages@v4 # Official GitHub Pages deployment action
