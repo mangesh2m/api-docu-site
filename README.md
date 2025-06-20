@@ -2,7 +2,7 @@
 
 [![docusaurus](https://img.shields.io/badge/Powered%20By-docusaurus-darkgreen?style=flat-square)](https://docusaurus.io) [![ghpages](https://img.shields.io/badge/Powered%20By-GitHub%20Pages-black?style=flat-square&logo=github&&logoColor=white)](https://pages.github.com)
 
-This website provides comprehensive documentation for the **BrewBuddy API**, built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This website provides comprehensive documentation for the **BrewBuddy API**, built using [Docusaurus](https://docusaurus.io/), a modern static website generator. You can dive right into the **[API Docs](/docs/getting-started)** to learn more!
 
 ---
 
@@ -68,6 +68,6 @@ This is a GFM task list to track project progress.
   
 :::note
 
-This README uses GitHub Flavored Markdown (GFM) for tables and task lists.
+This README uses GitHub Flavored Markdown (GFM) for tables and task lists, while Docusaurus-exclusive admonitions, such as this message.
 
 :::
