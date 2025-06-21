@@ -58,7 +58,7 @@ const config = {
       scrollToTop: true,
 
       navbar: {
-        title: 'Home', // Title next to the logo in the navbar
+        // title: 'Home', // Title next to the logo in the navbar
         logo: {
           alt: 'BrewBuddy Logo',
           src: 'img/brewbuddy-logo.png', // Path to your logo
@@ -66,6 +66,13 @@ const config = {
         items: [
           // This item links to your documentation section.
           // 'docId: 'getting-started' will correctly link to docs/getting-started.md
+          {
+            to: '/', // Home link
+            label: 'Home',
+            position: 'left',
+            exact: true,
+            // activeBasePath: '/',
+          },
           {
             type: 'doc',
             docId: 'getting-started',
