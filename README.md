@@ -1,6 +1,9 @@
-# BrewBuddy API Documentation Website
+<h1 align="center"> BrewBuddy API: Automate Your Coffee Experience! </h1>
 
-[![docusaurus](https://img.shields.io/badge/Powered%20By-docusaurus-darkgreen?style=flat-square)](https://docusaurus.io) [![ghpages](https://img.shields.io/badge/Powered%20By-GitHub%20Pages-black?style=flat-square&logo=github&&logoColor=white)](https://pages.github.com)
+<div style={{textAlign: 'center'}}>
+  [![Docusaurus](https://img.shields.io/badge/Powered%20By-docusaurus-darkgreen?style=flat-square)](https://docusaurus.io) 
+  [![ghpages](https://img.shields.io/badge/Powered%20By-GitHub%20Pages-black?style=flat-square&logo=github&&logoColor=white)](https://pages.github.com)
+</div>
 
 This website provides comprehensive documentation for the **BrewBuddy API**, built using [Docusaurus](https://docusaurus.io/), a modern static website generator. You can dive right into the **[API Docs](/docs/getting-started)** to learn more!
 
