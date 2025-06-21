@@ -35,3 +35,13 @@
 h1, h2 {
   color: #F7E7CE; /* Champagne Yellow */
 }
+
+/* Shift navbar title ("Home") slightly to the right */
+.navbar__title {
+  margin-left: 20px; /* Adjust value as needed */
+}
+.navbar__link--active {
+  color: #2ecc71 !important;
+  font-weight: 700;
+}
+
