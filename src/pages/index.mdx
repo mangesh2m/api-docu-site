@@ -1,5 +1,4 @@
 ---
-# Docusaurus Front Matter for your homepage
 title: BrewBuddy API Documentation
 description: Welcome to the BrewBuddy API Docs - Automate Your Coffee Experience.
 slug: / # This makes this MDX file the root homepage
@@ -7,7 +6,23 @@ hide_table_of_contents: true # Optional: Hides the table of contents for this pa
 # You can add more front matter here like image, keywords etc.
 ---
 
-import ReadmeContent from '../../README.md'; // This path is crucial!
+import LottieAnimation from '@site/src/components/LottieAnimation';
+import ReadmeContent from '../../README.md';
+// If you plan to use Docusaurus Link component later, uncomment this line:
+// import Link from '@docusaurus/Link';
+
+
+# {frontMatter.title}
+
+{/* IMPORTANT: Apply width and height directly to this div */}
+<div style={{ textAlign: 'center', marginBottom: '2rem', width: '300px', height: '300px', margin: '0 auto' }}>
+  <LottieAnimation
+    jsonFileName="brewbuddy-anima.json"
+    loop={true}
+    autoplay={true}
+    speed={1}    
+  />
+</div>
 
 {/* This component will render the content of your README.md file */}
 <ReadmeContent />
