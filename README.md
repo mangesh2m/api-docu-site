@@ -71,6 +71,6 @@ This is a GFM task list to track project progress.
   
 :::note
 
-This README uses GitHub Flavored Markdown (GFM) for tables and task lists, whereas for admonitions (such as this message), it uses Docusaurus-exclusive syntax. 
+This README uses GitHub Flavored Markdown (GFM) for tables and task lists, while admonitions (such as this message) use Docusaurus-exclusive syntax. 
 
 :::
